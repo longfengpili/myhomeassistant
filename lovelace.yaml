@@ -1,0 +1,7 @@
+resources:
+ - url: /hacsfiles/lovelace-card-tools/card-tools.js
+   type: module
+ - url: /hacsfiles/secondaryinfo-entity-row/secondaryinfo-entity-row.js
+   type: module
+ - url: /hacsfiles/vacuum-card/vacuum-card.js
+   type: module

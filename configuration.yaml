@@ -1,0 +1,48 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+# lovelace: !include lovelace.yaml
+
+
+frontend:
+  themes: !include_dir_merge_named themes
+  
+homeassistant:
+  name: XuHouse
+  latitude: !secret HOME_LATITUDE
+  longitude: !secret HOME_LONGITUDE
+  time_zone: Asia/Shanghai
+
+  packages: !include_dir_named packages
+  #devices: !include_dir_named devices
+  customize: !include customize.yaml
+  
+panel_iframe:
+ nodered:
+   title: 'Node-Red'
+   icon: 'mdi:shuffle-variant'
+   url: 'http://longfengpili.cn:9090/'
+
+
+device_tracker:
+  - platform: xiaomi
+    host: 192.168.31.1
+    password: !secret XIAOMI_CLOUD_PASSWORD
+    consider_home: 180  # 是当设备持续离线多少秒后，认为离家；
+    # interval_seconds: 15  # 是每隔多少秒扫描一次，数值过低会加重路由器负担；
+    track_new_devices: yes  # 是对于新接入路由器的设备，默认跟踪还是不跟踪，yes或no都可以，无非就是下一步是选择需要不跟踪的设备还是需要跟踪的设备。
+        
+# camera:  # 不支持p2041
+#   - platform: xiaomi_cloud_map_extractor
+#     host: !secret XIAOMI_VACUUM_HOST
+#     token: !secret XIAOMI_VACUUM_TOKEN
+#     username: !secret XIAOMI_CLOUD_USERNAME
+#     password: !secret XIAOMI_CLOUD_PASSWORD
