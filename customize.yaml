@@ -1,6 +1,7 @@
-sensor.miwifi_88_c3_97_18_4f_76_wan_download_speed:
-  unit_of_measurement: kB/s
-  state: '{{ (value | float(0) / 1000) | round(2) }}'
+# sensor.miwifi_88_c3_97_18_4f_76_wan_download_speed:
+#   - platform: template
+#     unit_of_measurement: KB/s
+#     value_template: "{{ states }}"
   
 camera.chuangmi_021a04_ab5a_motion_event:
   use_motion_stream: true # 在主实体开启回放，猫眼默认已开启
@@ -16,4 +17,28 @@ camera.loock_v01_92d4_video_doorbell:
   use_motion_stream: true # 在主实体开启回放，猫眼默认已开启
   sub_motion_stream: true # 为回放视频单独生成一个camera实体，与`use_motion_stream`属性选其一
   motion_stream_slice: -1 # 视频切片文件索引，-1表示最后一个切片文件，0表示第一个
+  
+sensor.lumi_v1_6c1f_electric_power:
+  name: UPS
+  unit_of_measurement: W
+sensor.lumi_v1_125d_electric_power:
+  name: 饮水机
+  unit_of_measurement: W
+sensor.lumi_v1_aaaf_electric_power:
+  name: 榻榻米
+  unit_of_measurement: W
+sensor.lumi_mcn02_cd62_electric_power:
+  name: 主卧空调
+  unit_of_measurement: W
+sensor.lumi_mcn02_19a4_electric_power:
+  name: 热水器
+  unit_of_measurement: W
+sensor.lumi_mcn02_9d7c_electric_power:
+  name: 儿童房空调
+  unit_of_measurement: W
+sensor.zimi_zncz01_bd77_electric_power:
+  name: 洗衣机
+  unit_of_measurement: W
+
+
   

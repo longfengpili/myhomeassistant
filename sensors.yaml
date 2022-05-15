@@ -1,0 +1,18 @@
+- platform: template
+  sensors:
+    wifi_download:
+      friendly_name: 下载
+      unit_of_measurement: KB/s
+      value_template: "{{ states('sensor.miwifi_88_c3_97_18_4f_76_wan_download_speed') | float() / 1000 | round(2) }}"
+    wifi_upload:
+      friendly_name: 上传
+      unit_of_measurement: KB/s
+      value_template: "{{ states('sensor.miwifi_88_c3_97_18_4f_76_wan_upload_speed') | float() / 1000 | round(2) }}"
+
+- platform: history_stats
+  name: Total TV Time
+  entity_id: media_player.living_room_tv
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
