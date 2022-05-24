@@ -30,7 +30,7 @@ panel_iframe:
  nodered:
    title: 'Node-Red'
    icon: 'mdi:shuffle-variant'
-   url: 'http://longfengpili.cn:9090/'
+   url: 'http://longfengpili.cn:1880/'
    
 ha_baidu_map:
    ak: !secret BDMAP_AK
