@@ -51,5 +51,5 @@ camera:  # 不支持p2041
     username: !secret XIAOMI_CLOUD_USERNAME
     password: !secret XIAOMI_CLOUD_PASSWORD
     draw: ['all']
-        attributes:
-          - calibration_points
+    attributes:
+      - calibration_points
