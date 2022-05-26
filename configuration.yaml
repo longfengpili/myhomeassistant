@@ -53,3 +53,4 @@ camera:  # 不支持p2041
     draw: ['all']
     attributes:
       - calibration_points
+      - rooms
